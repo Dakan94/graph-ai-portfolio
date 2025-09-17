@@ -39,6 +39,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
     nav a {
       color: #f8f9fa;
@@ -62,7 +63,7 @@
       color: #50fa7b;
       text-transform: uppercase;
     }
-    .about-me, .about-course, .submissions {
+    .about-me, .about-course, .submissions, .contact {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       padding: 2rem;
@@ -87,6 +88,12 @@
       background: rgba(255, 255, 255, 0.15);
       transform: translateX(10px);
     }
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -97,9 +104,6 @@
     @media (max-width: 768px) {
       header h1 {
         font-size: 2rem;
-      }
-      nav {
-        flex-wrap: wrap;
       }
     }
   </style>
@@ -114,6 +118,7 @@
     <a href="#about-me">About Me</a>
     <a href="#about-course">Course</a>
     <a href="#submissions">Submissions</a>
+    <a href="#contact">Consultation</a>
   </nav>
 
   <section id="about-me" class="about-me">
@@ -150,10 +155,17 @@
     </ul>
   </section>
 
+  <section id="contact" class="contact">
+    <h2>Contact for Consultation</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepO6r2ru4fTjoRWsAtfuZKcXRlKOr-bz2fPo5U22NzMv7kgQ/viewform?embedded=true" width="640" height="820" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </section>
+
   <footer>
     <p>&copy; 2025 Daniel N. Kadoke | Generative AI for Work & Research Portfolio</p>
   </footer>
+
+  <!-- Optional botpress scripts -->
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
-<script src="https://files.bpcontent.cloud/2025/09/08/11/20250908111009-QB2NX4DR.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/09/08/11/20250908111009-QB2NX4DR.js" defer></script>
 </body>
 </html>
