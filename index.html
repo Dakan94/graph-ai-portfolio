@@ -276,6 +276,82 @@
       margin-top: 2rem;
     }
     
+    /* Chatbot Styles */
+    #chatbot-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 1001;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    
+    #chatbot-icon:hover {
+      transform: scale(1.1);
+      background: #3dc763;
+    }
+    
+    #chatbot-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: var(--dark);
+    }
+    
+    .bp-widget-widget {
+      display: none !important;
+    }
+    
+    .bp-widget-side-button {
+      display: none !important;
+    }
+    
+    /* Custom Chat Container */
+    #custom-chat-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 1002;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    #custom-chat-header {
+      background: var(--primary);
+      color: var(--dark);
+      padding: 15px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    #close-chat {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    #custom-chat-frame {
+      flex-grow: 1;
+      border: none;
+    }
+    
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -299,6 +375,13 @@
       
       .section-title {
         font-size: 1.8rem;
+      }
+      
+      #custom-chat-container {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+        height: 70vh;
       }
     }
   </style>
@@ -437,8 +520,70 @@
     <p>&copy; 2025 Daniel N. Kadoke | Generative AI for Work & Research Portfolio</p>
   </footer>
 
-  <!-- Botpress Chatbot Scripts -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
-  <script src="https://files.bpcontent.cloud/2025/09/08/11/20250908111009-QB2NX4DR.js" defer></script>
+  <!-- Chatbot Icon -->
+  <div id="chatbot-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+
+  <!-- Custom Chat Container -->
+  <div id="custom-chat-container">
+    <div id="custom-chat-header">
+      <span>AI Assistant</span>
+      <button id="close-chat">×</button>
+    </div>
+    <iframe id="custom-chat-frame" src="about:blank"></iframe>
+  </div>
+
+  <!-- Botpress Scripts -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/09/08/11/20250908111009-QB2NX4DR.js"></script>
+  
+  <script>
+    // Chatbot toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const chatbotIcon = document.getElementById('chatbot-icon');
+      const chatContainer = document.getElementById('custom-chat-container');
+      const closeChat = document.getElementById('close-chat');
+      const chatFrame = document.getElementById('custom-chat-frame');
+      
+      // Hide the default Botpress widget
+      const hideBotpressWidget = setInterval(function() {
+        const bpWidgets = document.querySelectorAll('.bp-widget-widget, .bp-widget-side-button');
+        if (bpWidgets.length > 0) {
+          bpWidgets.forEach(widget => {
+            widget.style.display = 'none';
+          });
+          clearInterval(hideBotpressWidget);
+        }
+      }, 100);
+      
+      // Toggle chat window
+      chatbotIcon.addEventListener('click', function() {
+        if (chatContainer.style.display === 'flex') {
+          chatContainer.style.display = 'none';
+        } else {
+          chatContainer.style.display = 'flex';
+          // Load the Botpress chat in the iframe
+          chatFrame.src = 'https://cdn.botpress.cloud/webchat/v3.2/webchat.html';
+        }
+      });
+      
+      // Close chat window
+      closeChat.addEventListener('click', function() {
+        chatContainer.style.display = 'none';
+      });
+      
+      // Close chat when clicking outside (optional)
+      document.addEventListener('click', function(event) {
+        if (!chatContainer.contains(event.target) && 
+            !chatbotIcon.contains(event.target) && 
+            chatContainer.style.display === 'flex') {
+          chatContainer.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
