@@ -12,6 +12,7 @@
       color: #f8f9fa;
       line-height: 1.6;
     }
+
     header {
       display: flex;
       flex-direction: column;
@@ -22,15 +23,18 @@
       background: linear-gradient(135deg, #141E30, #243B55);
       color: #fff;
     }
+
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
       font-weight: bold;
     }
+
     header p {
       font-size: 1.3rem;
       opacity: 0.9;
     }
+
     nav {
       display: flex;
       justify-content: center;
@@ -41,6 +45,7 @@
       z-index: 1000;
       flex-wrap: wrap;
     }
+
     nav a {
       color: #f8f9fa;
       text-decoration: none;
@@ -48,14 +53,17 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #ffe082;
     }
+
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
+
     h2 {
       text-align: center;
       font-size: 2.2rem;
@@ -63,20 +71,28 @@
       color: #50fa7b;
       text-transform: uppercase;
     }
-    .about-me, .about-course, .submissions, .contact, .showcase {
+
+    .about-me,
+    .about-course,
+    .submissions,
+    .contact,
+    .showcase {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       padding: 2rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       margin-bottom: 3rem;
     }
+
     ul, p {
       font-size: 1.1rem;
     }
+
     .submissions ul {
       list-style: none;
       padding: 0;
     }
+
     .submissions li {
       background: rgba(255, 255, 255, 0.08);
       margin: 0.7rem 0;
@@ -84,21 +100,25 @@
       border-radius: 10px;
       transition: transform 0.3s ease, background 0.3s ease;
     }
+
     .submissions li:hover {
       background: rgba(255, 255, 255, 0.15);
       transform: translateX(10px);
     }
+
     .project-description {
       font-size: 1rem;
       margin-top: 0.5rem;
       display: block;
     }
+
     iframe {
       width: 100%;
       border: none;
       border-radius: 10px;
       background: #fff;
     }
+
     .showcase img {
       display: block;
       max-width: 100%;
@@ -107,6 +127,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -114,6 +135,7 @@
       background: #141E30;
       color: #aaa;
     }
+
     @media (max-width: 768px) {
       header h1 {
         font-size: 2rem;
@@ -135,11 +157,13 @@
     <a href="#showcase">Event</a>
   </nav>
 
+  <!-- About Me -->
   <section id="about-me" class="about-me">
     <h2>About Me</h2>
     <p>I am Daniel N. Kadoke, a graduate of Stella Maris Mtwara University College with a Bachelor of Science in Mathematics and Statistics. I specialize in data analysis and interpretation, with proficiency in Python, R, and SPSS. I also have experience with Microsoft Office tools, Tableau, and Google Sheets. My training includes applied statistics in marketing from the University of Rey Juan Carlos in Madrid, and data visualization with Python. I am passionate about using data-driven insights to solve real-world challenges, particularly in research and public health.</p>
   </section>
 
+  <!-- About the Course -->
   <section id="about-course" class="about-course">
     <h2>About the Course</h2>
     <p>The <strong>Generative AI for Work & Research</strong> course is an 8-week live cohort program offered by GRAPH Courses, University of Geneva. It focuses on leveraging no-code AI tools for task automation, research, and communication. The course provides training in:</p>
@@ -155,6 +179,7 @@
     <p>The program emphasizes hands-on experience, peer collaboration, and real-world applications of AI for research productivity.</p>
   </section>
 
+  <!-- Submissions -->
   <section id="submissions" class="submissions">
     <h2>My Weekly Submissions</h2>
     <ul>
@@ -184,22 +209,25 @@
     </ul>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="contact">
     <h2>Contact for Consultation</h2>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepO6r2ru4fTjoRWsAtfuZKcXRlKOr-bz2fPo5U22NzMv7kgQ/viewform?embedded=true" width="640" height="820" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </section>
 
+  <!-- Showcase -->
   <section id="showcase" class="showcase">
     <h2>Upcoming Event</h2>
     <p>Join us for the upcoming showcase event where projects from the Generative AI for Work & Research course will be presented.</p>
     <img src="https://github.com/Dakan94/graph-ai-portfolio/blob/main/The%20GRAPH%20Showcase.png?raw=true" alt="The GRAPH Showcase Flyer">
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Daniel N. Kadoke | Generative AI for Work & Research Portfolio</p>
   </footer>
 
-  <!-- Optional Botpress scripts -->
+  <!-- Botpress Chatbot Scripts -->
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/09/08/11/20250908111009-QB2NX4DR.js" defer></script>
 </body>
