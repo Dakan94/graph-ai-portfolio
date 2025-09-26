@@ -12,6 +12,7 @@
       --light: #f8f9fa;
       --card-bg: rgba(255, 255, 255, 0.05);
       --hover-effect: rgba(255, 255, 255, 0.15);
+      --module-bg: rgba(255, 255, 255, 0.08);
     }
     
     * {
@@ -182,6 +183,120 @@
     
     .btn:hover {
       background: #3dc763;
+    }
+    
+    /* Course Modules Section */
+    .modules-intro {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .modules-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .module-card {
+      background: var(--module-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid var(--primary);
+      height: 100%;
+    }
+    
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    
+    .module-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .module-number {
+      background: var(--primary);
+      color: var(--dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .module-title {
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .module-description {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    
+    .topics-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .topics-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .topics-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .topics-list li::before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+    }
+    
+    /* GRAPH Courses Description */
+    .graph-description {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin-top: 3rem;
+      border-top: 3px solid var(--primary);
+    }
+    
+    .graph-description h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .graph-description p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
     }
     
     /* Submissions Section */
@@ -358,7 +473,7 @@
         font-size: 2rem;
       }
       
-      .grid-container {
+      .grid-container, .modules-container {
         grid-template-columns: 1fr;
       }
       
@@ -382,6 +497,15 @@
         right: 20px;
         left: 20px;
         height: 70vh;
+      }
+      
+      .module-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .module-number {
+        margin-bottom: 0.5rem;
       }
     }
   </style>
@@ -454,20 +578,137 @@
     <!-- Course Information -->
     <section id="course">
       <h2 class="section-title">Generative AI Course</h2>
-      <div class="card">
-        <h3>About the Course</h3>
+      
+      <div class="modules-intro">
         <p>The <strong>Generative AI for Work & Research</strong> course is an 8-week live cohort program offered by GRAPH Courses, University of Geneva. It focuses on leveraging no-code AI tools for task automation, research, and communication.</p>
-        <p>The program provides training in:</p>
-        <ul>
-          <li>Understanding large language models (LLMs) and no-code AI tools</li>
-          <li>Automated data analysis and visualization</li>
-          <li>Research text analysis and knowledge synthesis</li>
-          <li>Custom GPTs and chatbot building</li>
-          <li>AI-powered task automation</li>
-          <li>AI for scientific communication and outreach</li>
-          <li>A capstone project and peer showcase</li>
-        </ul>
-        <p>The program emphasizes hands-on experience, peer collaboration, and real-world applications of AI for research productivity.</p>
+      </div>
+      
+      <div class="modules-container">
+        <!-- Module 1 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">1</div>
+            <h3 class="module-title">Websites, Documents & Presentations</h3>
+          </div>
+          <p class="module-description">Learn how large language models (LLMs) work. Generate text for papers or grants, create project websites with no-code tools, format documents efficiently, and design clear presentations or posters using AI assistants.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>How LLMs are trained and an overview of popular LLM providers</li>
+            <li>Generating Markdown, LateX and HTML outputs</li>
+            <li>Building simple research websites with ChatGPT Canvas and Replit</li>
+            <li>Using Markdown for structured research documents</li>
+            <li>Introduction to AI presentation tools for scientific communication</li>
+          </ul>
+        </div>
+        
+        <!-- Module 2 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">2</div>
+            <h3 class="module-title">AI-Automated Data Analysis</h3>
+          </div>
+          <p class="module-description">Master AI tools for analyzing data, manipulating files, and creating automated reports. Use Julius, ChatGPT Code Interpreter and Windsurf to process datasets, visualize results, and generate reports quickly.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>Use ChatGPT Code Interpreter for quick data analysis</li>
+            <li>Build automated dashboards with TheBricks</li>
+            <li>Process and transform datasets with Julius</li>
+            <li>Implement batch file conversion and manipulation</li>
+            <li>Create automated reports and data visualizations</li>
+            <li>Design spreadsheet automations for recurring analyses</li>
+          </ul>
+        </div>
+        
+        <!-- Module 3 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">3</div>
+            <h3 class="module-title">GenAI for Research & Text Analysis</h3>
+          </div>
+          <p class="module-description">Learn AI techniques for literature search, text analysis, and knowledge synthesis. Explore how AI can accelerate information gathering, identify patterns in text data, and organize complex information.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>Conducting efficient literature reviews with Elicit and LiteRev</li>
+            <li>Implementing text classification for document organization</li>
+            <li>Applying sentiment analysis to identify trends and opinions</li>
+            <li>Creating knowledge maps from document collections</li>
+            <li>Designing automated summarization workflows</li>
+            <li>Building information synthesis systems for research topics</li>
+          </ul>
+        </div>
+        
+        <!-- Module 4 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">4</div>
+            <h3 class="module-title">Custom GPTs and Chatbots</h3>
+          </div>
+          <p class="module-description">Dive deeper into research assistant creation by leveraging advanced LLM architecture. Build chatbots for research assistance and knowledge management.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>LLM chat architecture, context windows, and RAG systems</li>
+            <li>Building custom GPTs for specific use cases</li>
+            <li>Creating interactive chatbots with Botpress</li>
+            <li>Integrating knowledge bases with your research materials</li>
+          </ul>
+        </div>
+        
+        <!-- Module 5 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">5</div>
+            <h3 class="module-title">AI for Task Automation</h3>
+          </div>
+          <p class="module-description">Discover practical strategies for automating repetitive research tasks through AI-driven flows. Set up email response automations, design AI agents for literature monitoring, and orchestrate complex workflows.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>Introduction to AI automation and agent-based systems</li>
+            <li>Setting up email response automations</li>
+            <li>Building AI agents for complex automation flows</li>
+            <li>Browser control agents for web-based tasks</li>
+          </ul>
+        </div>
+        
+        <!-- Module 6 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">6</div>
+            <h3 class="module-title">GenAI for Communication and Outreach</h3>
+          </div>
+          <p class="module-description">Explore AI-driven approaches for research dissemination, focusing on creating assets for sharing your findings. Learn to develop methods for summarizing research and design visuals for publications.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>AI-generated research summaries for different audiences</li>
+            <li>Designing scientific figures and diagrams with AI tools</li>
+            <li>AI-generated video abstracts and explanations</li>
+            <li>Prompt engineering for scientific visualization</li>
+            <li>Content scheduling for research communication</li>
+          </ul>
+        </div>
+        
+        <!-- Module 7 -->
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">7</div>
+            <h3 class="module-title">Capstone Project & Showcase</h3>
+          </div>
+          <p class="module-description">Collaborate with peers and instructors to create and refine a final AI solution, tool or presentation. Receive real-time feedback and troubleshoot technical challenges.</p>
+          <div class="topics-title">Topics</div>
+          <ul class="topics-list">
+            <li>Project progress check</li>
+            <li>Peer feedback sessions</li>
+            <li>Final project presentations</li>
+            <li>Public Q&A session</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="graph-description">
+        <h3>About GRAPH Courses</h3>
+        <p>At GRAPH Courses, we're committed to making high-quality data science and AI education accessible and impactful. Based at the University of Geneva, Switzerland, our programs combine academic rigor with practical, industry-relevant skills.</p>
+        <p>Our bootcamp-style approach ensures an immersive learning experience. You'll gain technical know-how, build real-world AI projects, and set yourself apart in the job market.</p>
+        <p>What sets us apart is our supportive learning ecosystem. With live workshops, personalized project reviews, and a global community of peers, you're never alone. Our experienced instructors and mentors are dedicated to your success.</p>
+        <p>As a non-profit backed by academic institutions, we offer this comprehensive bootcamp at an affordable price without compromising on quality.</p>
       </div>
     </section>
 
